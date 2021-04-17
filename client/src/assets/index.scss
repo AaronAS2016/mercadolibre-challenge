@@ -2,9 +2,14 @@
 @import "styles/spaces";
 @import "styles/sizes";
 
+// Proxima novva Font
+@import url("https://use.typekit.net/rvh8nsw.css");
+
 html,
 body,
 div#root {  
   margin: 0;
   padding: 0;
+  background-color: var(--color-accent) ;
+  font-family: "Proxima Nova",-apple-system, Helvetica,Roboto ,sans-serif;
 }

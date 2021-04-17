@@ -1,4 +1,10 @@
-.header_wrapper { 
-    width: 100%;
-    background: var(--color-primary);
+.header-wrapper {
+  width: 100%;
+  background: var(--color-primary);
+  display: flex;
+  align-items: center;
+  padding-left: min(5px, 10%);
+  padding-right: min(5px, 10%);
+  height: 65px;
+  box-sizing: border-box;
 }
