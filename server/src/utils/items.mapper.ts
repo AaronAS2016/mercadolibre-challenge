@@ -1,10 +1,13 @@
+import { Author } from './../constant/index';
+import { author } from "../constant";
+
 interface Items {
     author: Author;
     categories: string[];
     items: Item[];
   }
   
-  interface Item {
+  export interface Item {
     id: string;
     title: string;
     price: Price;
@@ -19,12 +22,10 @@ interface Items {
     decimals: number | null;
   }
   
-  interface Author {
-    name: string;
-    lastName: string;
-  }
   
-  const countDecimals = (value: number) => {
+
+  
+  export const countDecimals = (value: number) => {
     if (!value) return null;
     if (Math.floor(value) === value) return 0;
     return value.toString().split(".")[1].length || 0;
@@ -39,7 +40,7 @@ interface Items {
     return categories;
   };
   
-  const getBestPrice = (prices: any): Price | undefined => {
+  export const getBestPrice = (prices: any): Price | undefined => {
     if (!prices || prices.length === 0) {
       return undefined;
     }
@@ -60,12 +61,7 @@ interface Items {
   
   export const mapItemsResponse = (data: any): Items | null => {
     if (!data) return null;
-  
-    const author: Author = {
-      name: "Aaron",
-      lastName: "Saban",
-    };
-  
+
     const categories = getCategories(data["available_filters"]);
   
     const items = data.results.map((item: any) => {
