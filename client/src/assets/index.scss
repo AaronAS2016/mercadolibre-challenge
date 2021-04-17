@@ -1,9 +1,10 @@
-@import 'base';
+@import "styles/colors";
+@import "styles/spaces";
+@import "styles/sizes";
 
 html,
 body,
-div#root {
-  @include full-page;
+div#root {  
   margin: 0;
   padding: 0;
 }
