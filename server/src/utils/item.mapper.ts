@@ -7,12 +7,12 @@ import { getCategoriesByid, getPicture } from './url';
 interface SearchItem { 
     author: Author;
     item: DescriptionItem;
+    categories: string[]    
 }
 
 interface DescriptionItem  extends Item {
     sold_quantity: string;
     description: string;
-    categories: string[]    
 }
 
 
@@ -43,7 +43,7 @@ export const mapItemResponse = async (dataItem: any, dataItemDescription: any) :
             location,
             sold_quantity, 
             description,
-            categories
-        } 
+        },
+        categories
     }
 } 
