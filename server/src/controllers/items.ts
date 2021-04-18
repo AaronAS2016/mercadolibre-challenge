@@ -27,6 +27,6 @@ export const getItem = async (id: string) => {
     );
     return mapItemResponse(item.data, itemDescriptions.data);
   } catch (error) {
-    console.log(error);
+    throw new Error(error);
   }
 };

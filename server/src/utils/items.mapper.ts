@@ -1,5 +1,6 @@
 import { Author } from './../constant/index';
 import { author } from "../constant";
+import { countDecimals } from './decimals';
 
 interface Items {
     author: Author;
@@ -24,13 +25,6 @@ interface Items {
   
   
 
-  
-  export const countDecimals = (value: number) => {
-    if (!value) return null;
-    if (Math.floor(value) === value) return 0;
-    return value.toString().split(".")[1].length || 0;
-  };
-  
   const getCategories = (filters: any, available_filters: any): string[] => {
 
     if(filters.length === 0 && available_filters.length === 0) { return []; }

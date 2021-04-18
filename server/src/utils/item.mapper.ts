@@ -1,5 +1,6 @@
 import { MEDIUM_FILE_SIZE } from './../constant/index';
-import { countDecimals, Item } from './items.mapper';
+import { Item } from './items.mapper';
+import { countDecimals } from './decimals';
 import { Author, author } from './../constant/';
 import { getPicture } from './url';
 
