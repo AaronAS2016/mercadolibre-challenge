@@ -31,12 +31,21 @@ interface Items {
     return value.toString().split(".")[1].length || 0;
   };
   
-  const getCategories = (filters: any): string[] => {
+  const getCategories = (filters: any, available_filters: any): string[] => {
+
+    if(filters.length === 0 && available_filters.length === 0) { return []; }
+
     let categories = [];
-    const categoiesFilters = filters.find(
+    let categoriesFilters = filters.find(
       (filter: any) => filter.id === "category"
     );
-    categories = categoiesFilters.values.map((category: any) => category.name);
+    categoriesFilters = categoriesFilters === undefined ? available_filters.find(
+      (filter: any) => filter.id === "category"
+    ) : categoriesFilters;
+
+    if(categoriesFilters === undefined ){ console.log(filters, available_filters) }
+
+    categories = categoriesFilters.values.map((category: any) => category.name);
     return categories;
   };
   
@@ -62,7 +71,7 @@ interface Items {
   export const mapItemsResponse = (data: any): Items | null => {
     if (!data) return null;
 
-    const categories = getCategories(data["available_filters"]);
+    const categories = getCategories(data["filters"], data["available_filters"]);
   
     const items = data.results.map((item: any) => {
       const { id, title, thumbnail: picture, condition, shipping } = item;
