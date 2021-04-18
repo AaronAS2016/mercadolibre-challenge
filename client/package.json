@@ -52,6 +52,7 @@
     "components": "./src/components",
     "pages": "./src/pages",
     "assets": "./src/assets",
-    "layout": "./src/layout"
+    "layout": "./src/layout",
+    "context": "./src/context"
   }
 }

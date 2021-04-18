@@ -9,7 +9,7 @@ export const ItemInfo= ({ product }: ItemProps) => {
 
     if(product === []) { return null; }
 
-    const { id, title, description, condition: rawCondition, sold_quantity, price: { amount }, picture } = product; 
+    const { title, description, condition: rawCondition, sold_quantity, price: { amount }, picture } = product; 
     const condition = rawCondition === "new" ? "Nuevo" : "Usado" ; 
     return(
         <div className="item-info-wrapper"> 

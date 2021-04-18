@@ -1,7 +1,7 @@
 .breadcrumb-wrapper {
   display: flex;
-  width: 100%;
-  margin: var(--medium-space) 0;
+  width: clamp( 200px  , 90%, 1600px );
+  margin: var(--medium-space) auto;
 
   &__item {
     position: relative;

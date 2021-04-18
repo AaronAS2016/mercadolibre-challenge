@@ -13,7 +13,10 @@ export const Item = ({ item }: ItemProps) => {
   const realPrice = `$${amount.toLocaleString()}`;
   return (
     <div className="item-wrapper">
-      <img className="item-wrapper__logo" src={picture} />
+      <Link className="item-wrapper__title-wrapper" to={`/items/${id}`}>
+        <img className="item-wrapper__logo" src={picture} />
+      </Link>
+
       <div className="item-wrapper__product-info">
         <div className="item-wrapper__price-wrapper">
           <p className="item-wrapper__price"> {realPrice} </p>

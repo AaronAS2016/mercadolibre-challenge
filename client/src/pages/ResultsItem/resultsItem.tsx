@@ -5,18 +5,23 @@ import { getItems } from "~/utils/api";
 import { ItemsContainer } from "~/components/results/itemsContainer/itemsContainer";
 import { Item } from "~/components/results/item/item";
 import { AMOUNT_OF_ITEMS } from "~/constants/api";
+import { useItems } from "~/context/items-context";
 
 
 
 export const ResultsItem = (props: RouteComponentProps) => {
     const search = new URLSearchParams(useLocation().search);
     const query:string | null = search.get('search');
-    const [products, setProducts]=  useState([]);
+    const [products, setProducts]=  useState<any>([]);
+    const { setQuery, setCategories } = useItems();
 
     useEffect(() => {
-        setProducts([])
+        setProducts([]);
+        setCategories([]);
+        setQuery(query);
         async function getProducts() {
             const dataProducts = await getItems(query)
+            setCategories(dataProducts.categories);
             setProducts(dataProducts);
         }
         getProducts();

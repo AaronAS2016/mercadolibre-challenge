@@ -1,30 +1,30 @@
 import React, { FunctionComponent, useState } from "react";
 import { navigate } from "@reach/router";
 import "./searchbar.scss";
-
+import { useItems } from "~/context/items-context";
 
 export const SearchBar: FunctionComponent = () => {
-  const [text, setText] = useState("");
-  const urlSearch = "/items?search="
+  const { query, setQuery } = useItems();
+  const urlSearch = "/items?search=";
 
   return (
     <nav className="navbar-wrapper">
       <input
         className="navbar-wrapper__search_input"
         placeholder="Nunca dejes de buscar"
-        value={text}
+        value={query}
         onChange={(e) => {
-          setText(e.target.value);
+          setQuery(e.target.value);
         }}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
-            navigate( urlSearch + text)
+            navigate(urlSearch + query);
           }
         }}
       />
       <button
         className="navbar-wrapper__search_button"
-        onClick={() => navigate( urlSearch + text) }
+        onClick={() => navigate(urlSearch + query)}
       />
     </nav>
   );
