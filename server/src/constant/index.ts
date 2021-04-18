@@ -17,4 +17,6 @@ export const author: Author = {
     lastName: "Saban",
 };
 
+
+export const DEFAULT_LIMIT_PRODUCT = 50;
 export const MEDIUM_FILE_SIZE = "500"

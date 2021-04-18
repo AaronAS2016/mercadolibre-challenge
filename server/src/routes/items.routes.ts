@@ -6,7 +6,8 @@ const itemsRouter = Router();
 itemsRouter.get("/", async (req, res) => {
   try { 
     const query = String(req.query.q);
-    const items = await getItems(query);
+    const limit = typeof req.query.limit === "string" ? req.query.limit : undefined;
+    const items = await getItems(query, limit);
     return res.status(200).send( items )
   }catch (error) {
     res.status(500).send({ error: error });
