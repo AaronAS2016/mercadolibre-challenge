@@ -15,6 +15,7 @@ interface Items {
     picture: string;
     condition: string;
     free_shipping: boolean;
+    location: string;
   }
   
   interface Price {
@@ -68,9 +69,10 @@ interface Items {
     const categories = getCategories(data["filters"], data["available_filters"]);
   
     const items = data.results.map((item: any) => {
-      const { id, title, thumbnail: picture, condition, shipping } = item;
+      const { id, title, thumbnail: picture, condition, shipping, seller_address } = item;
       const price = getBestPrice(item.prices?.prices);
       const { free_shipping } = shipping;
+      const location = seller_address.state.name
   
       return {
         id,
@@ -79,6 +81,7 @@ interface Items {
         picture,
         condition,
         free_shipping,
+        location
       };
     });
   

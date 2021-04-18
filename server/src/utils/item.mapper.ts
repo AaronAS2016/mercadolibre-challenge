@@ -20,10 +20,10 @@ export const mapItemResponse = (dataItem: any, dataItemDescription: any) : Searc
         return null;
     }
 
-    const { id, title,  sold_quantity, currency_id: currency, condition, shipping, pictures, price } = dataItem;
+    const { id, title,  sold_quantity, currency_id: currency, condition, shipping, pictures, price, seller_address } = dataItem;
     const { plain_text: description } = dataItemDescription;
     const { free_shipping } = shipping;
-    
+    const location = seller_address.state.name
 
     return {
         author,
@@ -38,6 +38,7 @@ export const mapItemResponse = (dataItem: any, dataItemDescription: any) : Searc
             picture: getPicture(pictures, MEDIUM_FILE_SIZE),
             condition,
             free_shipping,
+            location,
             sold_quantity, 
             description
         } 
