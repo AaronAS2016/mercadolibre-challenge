@@ -2,7 +2,7 @@ import { MEDIUM_FILE_SIZE } from './../constant/index';
 import { Item } from './items.mapper';
 import { countDecimals } from './decimals';
 import { Author, author } from './../constant/';
-import { getPicture } from './url';
+import { getCategoriesByid, getPicture } from './url';
 
 interface SearchItem { 
     author: Author;
@@ -11,19 +11,21 @@ interface SearchItem {
 
 interface DescriptionItem  extends Item {
     sold_quantity: string;
-    description: string;    
+    description: string;
+    categories: string[]    
 }
 
 
-export const mapItemResponse = (dataItem: any, dataItemDescription: any) : SearchItem | null => {
+export const mapItemResponse = async (dataItem: any, dataItemDescription: any) : Promise<SearchItem | null> => {
     if(!dataItem && !dataItemDescription) {
         return null;
     }
 
-    const { id, title,  sold_quantity, currency_id: currency, condition, shipping, pictures, price, seller_address } = dataItem;
+    const { id, title,  sold_quantity, currency_id: currency, condition, shipping, pictures, price, seller_address, category_id } = dataItem;
     const { plain_text: description } = dataItemDescription;
     const { free_shipping } = shipping;
-    const location = seller_address.state.name
+    const location = seller_address.state.name;
+    const categories = await  getCategoriesByid(category_id);
 
     return {
         author,
@@ -40,7 +42,8 @@ export const mapItemResponse = (dataItem: any, dataItemDescription: any) : Searc
             free_shipping,
             location,
             sold_quantity, 
-            description
+            description,
+            categories
         } 
     }
 } 

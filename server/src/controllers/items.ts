@@ -13,7 +13,7 @@ export const getItems = async (query: string, limit: string | undefined) => {
     let urlQuery = API_SEARCH_ITEMS + query;
     if (limit) urlQuery += "&limit=" + limit;
     const items = await axios.get(urlQuery);
-    return mapItemsResponse(items.data);
+    return await mapItemsResponse(items.data);
   } catch (error) {
     console.error(error);
   }
@@ -25,7 +25,7 @@ export const getItem = async (id: string) => {
     const itemDescriptions = await axios.get(
       buildURLItem(API_SEARCH_ITEM_DESCRIPTION, id)
     );
-    return mapItemResponse(item.data, itemDescriptions.data);
+    return await mapItemResponse(item.data, itemDescriptions.data);
   } catch (error) {
     throw new Error(error);
   }
