@@ -13,6 +13,7 @@ interface SearchItem {
 interface DescriptionItem  extends Item {
     sold_quantity: string;
     description: string;
+    link: string;
 }
 
 
@@ -21,7 +22,7 @@ export const mapItemResponse = async (dataItem: any, dataItemDescription: any) :
         return null;
     }
 
-    const { id, title,  sold_quantity, currency_id: currency, condition, shipping, pictures, price, seller_address, category_id } = dataItem;
+    const { id, title,  sold_quantity, currency_id: currency, condition, shipping, pictures, price, seller_address, category_id, permalink } = dataItem;
     const { plain_text: description } = dataItemDescription;
     const { free_shipping } = shipping;
     const location = seller_address.state.name;
@@ -43,6 +44,7 @@ export const mapItemResponse = async (dataItem: any, dataItemDescription: any) :
             location,
             sold_quantity, 
             description,
+            link: permalink
         },
         categories
     }
