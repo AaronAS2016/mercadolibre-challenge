@@ -1,5 +1,5 @@
 .navbar-wrapper {  
-  width: clamp(150px, 100%, 600px);
+  width: clamp( 200px  , calc(90% - 50px), 1550px );
   display: flex;
   justify-content: center;
   align-items: center;

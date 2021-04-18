@@ -7,7 +7,8 @@ export const getRequest = async (url: string, options: any = {}) => {
 }
 
 
-export const getItems = async (query: string) => {
+export const getItems = async (query: string | null) => {
+    if (!query) { return []; }
     const url = API_SEARCH_ITEM + query;
     return await getRequest(url); 
 }

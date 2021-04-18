@@ -1,0 +1,37 @@
+.item-wrapper { 
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--color-accent);
+    
+    
+    &__logo{
+        width: 180px;
+        height: 180px;
+        margin: var(--medium-space);
+        border-radius: 4px;
+    }
+
+    &__price-wrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: var(--large-space);
+    }
+
+    &__free_shiping {
+        margin-left: var(--medium-space);
+        width: 20px;
+        height: 20px;
+    }
+
+    &__price {
+        margin: 0;
+        font-size: var(--large-font);
+    }
+
+    &__title{
+        margin: 0;
+        width: clamp(150px,  300px, 80%);
+        font-size: var(--medium-font);
+    }
+}
