@@ -1,0 +1,7 @@
+.product-wrapper {
+    width: clamp( 200px  , 90%, 1600px );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}

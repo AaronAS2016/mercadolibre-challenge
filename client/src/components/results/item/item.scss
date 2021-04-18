@@ -29,8 +29,13 @@
         font-size: var(--large-font);
     }
 
-    &__title{
+    &__title-wrapper{
+        color: var(--color-secondary);
         margin: 0;
+        text-decoration: none;
+    }
+
+    &__title{
         width: clamp(150px,  300px, 80%);
         font-size: var(--medium-font);
     }

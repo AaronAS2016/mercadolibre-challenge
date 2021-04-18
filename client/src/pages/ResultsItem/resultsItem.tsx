@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./results.scss"
+import "./resultsItem.scss"
 import { RouteComponentProps, useLocation} from "@reach/router"
 import { getItems } from "~/utils/api";
 import { ItemsContainer } from "~/components/results/itemsContainer/itemsContainer";
