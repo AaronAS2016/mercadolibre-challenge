@@ -61,25 +61,6 @@ const getCategories = async (
   return categories;
 };
 
-export const getBestPrice = (prices: any): Price | undefined => {
-  if (!prices || prices.length === 0) {
-    return undefined;
-  }
-  const discountPrice = prices.find((price: any) => price.type === "promotion");
-  const price =
-    discountPrice === undefined
-      ? prices.find((price: any) => price.type === "standard")
-      : discountPrice;
-
-  const { currency_id: currency, amount } = price;
-  const decimals = countDecimals(amount);
-  return {
-    currency,
-    amount,
-    decimals,
-  };
-};
-
 export const mapItemsResponse = async (data: any): Promise<Items | null> => {
   if (!data) return null;
 
@@ -96,15 +77,21 @@ export const mapItemsResponse = async (data: any): Promise<Items | null> => {
       condition,
       shipping,
       seller_address,
+      price: amount,
+      currency_id: currency
     } = item;
-    const price = getBestPrice(item.prices?.prices);
     const { free_shipping } = shipping;
     const location = seller_address.state.name;
 
     return {
       id,
       title,
-      price,
+      price: {
+        amount,
+        currency,
+        decimals: countDecimals(amount),
+
+      },
       picture,
       condition,
       free_shipping,
