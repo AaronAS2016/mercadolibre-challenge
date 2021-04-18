@@ -1,0 +1,27 @@
+.breadcrumb-wrapper {
+  display: flex;
+  width: 100%;
+  margin: var(--medium-space) 0;
+
+  &__item {
+    position: relative;
+    margin: 0 var(--medium-space);
+    font-size: var(--small-font);
+
+    &::after {
+      content: "";
+      position: absolute;
+      background-image: url(../../assets/img/right.png);
+      background-position: center;
+      background-size: cover;
+      top: 3px;
+      right: -20px;
+      width: 12px;
+      height: 12px;
+    }
+
+    &:last-child:after {
+        content: none;
+    }
+  }
+}

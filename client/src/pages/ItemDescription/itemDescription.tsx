@@ -4,16 +4,17 @@ import { RouteComponentProps } from "@reach/router";
 import { getItem } from "~/utils/api";
 import { ItemsContainer } from "~/components/results/itemsContainer/itemsContainer";
 import { ItemInfo } from "~/components/itemDescription /itemInfo/itemInfo";
+import { Breadcrumb } from "~/layout/breadcrumb/breadcrumb";
 
 interface ItemDescriptionProps extends RouteComponentProps {
   id?: string;
 }
 
 export const ItemDescription = ({ id }: ItemDescriptionProps) => {
-  const [product, setProduct] = useState([]);
+  const [product, setProduct] = useState<any>({});
 
   useEffect(() => {
-    setProduct([]);
+    setProduct({});
     async function getProduct() {
       const dataProducts = await getItem(id);
       setProduct(dataProducts);
@@ -21,11 +22,11 @@ export const ItemDescription = ({ id }: ItemDescriptionProps) => {
     getProduct();
   }, [id]);
 
-  console.log(product);
   return (
     <section className="product-wrapper">
+      { product?.categories && <Breadcrumb categories={product.categories} />  }
       <ItemsContainer>
-        {product?.item && <ItemInfo product={product["item"]} />}
+        {product?.item && <ItemInfo product={product.item} />}
       </ItemsContainer>
     </section>
   );

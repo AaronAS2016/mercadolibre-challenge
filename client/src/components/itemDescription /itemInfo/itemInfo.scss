@@ -1,69 +1,64 @@
-.item-info-wrapper { 
-    display: grid;
-    grid-template-columns: 7fr 3fr;
-    grid-template-rows: 1fr 1fr;
+.item-info-wrapper {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  grid-template-rows: 1fr 1fr;
+  height: fit-content;
 
+  &__image {
+    display: flex;
+    margin: var(--large-space);
+    justify-content: center;
+    align-items: center;
+    max-width: 680px;
+  }
 
-    &__image {
-        display: flex;
-        margin: var(--large-space);
-        justify-content: center;
-        align-items: center;
-        max-width: 680px;
-    }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
 
-    &__info {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-    }
+  &__condition {
+    margin-top: var(--large-space);
+    margin-bottom: var(--medium-space);
+    font-size: var(--small-font);
+  }
 
-    &__condition {
-        margin-top: var(--large-space);
-        margin-bottom: var(--medium-space);
-        font-size: var(--small-font);
-    }
+  &__title {
+    font-size: var(--large-font);
+    font-weight: bold;
+  }
+
+  &__price {
+    margin: var(--large-space) 0;
+    font-size: var(--extra_large-46);
+  }
+
+  &__button {
+    width: calc(100% - var(--large-space));
+  }
+
+  .item-info-wrapper-description {
+    display: flex;
+    flex-direction: column;
+    padding-left: var(--large-space);
+    margin-bottom: var(--large-space);
 
     &__title {
-        font-size: var(--large-font);
-        font-weight: bold;
+      padding-top: 0;
+      font-size: var(--extra_large-font);
     }
-
-
-    &__price {
-        margin: var(--large-space) 0; 
-        font-size: var(--extra_large-46);
-    }
-
-    &__button {
-        width: calc(100% - var(--large-space));
-    }
-
-    .item-info-wrapper-description {
-        display: flex;
-        height: 100%;
-        flex-direction: column;
-        padding-left: var(--large-space);
-
-        &__title {
-            padding-top: 0;
-            font-size: var(--extra_large-font);
-        }
-    }
-
+  }
 }
 
+.btn {
+  color: var(--color-background);
+  text-align: center;
+  border-radius: 4px;
+  padding: 15px;
+  box-sizing: border-box;
 
-
-.btn { 
-    color: var(--color-background);
-    text-align: center;
-    border-radius: 4px;
-    padding: 15px;
-    box-sizing: border-box;
-
-    &--primary{
-        background-color: var(--color-primary-button);
-    }
-
+  &--primary {
+    background-color: var(--color-primary-button);
+  }
 }
