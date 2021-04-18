@@ -9,7 +9,7 @@ interface ItemProps {
 export const Item = ({ item }: ItemProps) => {
   const { picture, title, price, free_shipping } = item;
   const {amount } = price;
-  const realPrice = `$${amount}`;
+  const realPrice = `$${amount.toLocaleString()}`;
   return (
     <div className="item-wrapper">
       <img className="item-wrapper__logo" src={picture} />
