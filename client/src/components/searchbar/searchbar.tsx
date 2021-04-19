@@ -17,14 +17,18 @@ export const SearchBar: FunctionComponent = () => {
           setQuery(e.target.value);
         }}
         onKeyDown={(e) => {
-          if (e.key === "Enter") {
+          if (e.key === "Enter" && query.trim()) {
             navigate(urlSearch + query);
           }
         }}
       />
       <button
         className="navbar-wrapper__search_button"
-        onClick={() => navigate(urlSearch + query)}
+        onClick={() => {
+          if (query.trim()) {
+            navigate(urlSearch + query);
+          }
+        }}
       />
     </nav>
   );

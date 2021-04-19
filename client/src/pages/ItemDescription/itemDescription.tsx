@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./itemDescription.scss";
 import { RouteComponentProps } from "@reach/router";
-import { getItem } from "~/utils/api";
+import { controller, getItem } from "~/utils/api";
 import { ItemsContainer } from "~/components/results/itemsContainer/itemsContainer";
 import { ItemInfo } from "~/components/itemDescription /itemInfo/itemInfo";
 import { Breadcrumb } from "~/layout/breadcrumb/breadcrumb";
@@ -24,6 +24,7 @@ export const ItemDescription = ({ id }: ItemDescriptionProps) => {
       setCategories(dataProducts.categories);
     }
     getProduct();
+
   }, [id]);
 
   return (
