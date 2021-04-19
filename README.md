@@ -48,7 +48,7 @@ En la decision del Stack decidi utilizar Typescript para tener una mejor escabil
 
 ## Comentarios finales
 
-Muy divertido el challenge, le dedique bastante horas y me mantuvo entretenido al momento de realizarlo, algunos comentarios que queria agregar, el tema SEO, no pude implementar mucho en ese aspecto, decidi no usar React con Client Side Rendering porque no estaba seguro si estaba permitido utilizar algun microframework que me permita Server Side Rendering (Next o Gabtsy).
+Muy divertido el challenge, le dedique bastante horas y me mantuvo entretenido al momento de realizarlo, algunos comentarios que queria agregar, el tema SEO, no pude implementar mucho en ese aspecto, decidi en usar React con Client Side Rendering porque no estaba seguro si estaba permitido utilizar algun microframework que me permita Server Side Rendering (Next o Gabtsy).
 
 Tambien agregue casos de test pero no la cantidad que hubiese querido, tuve que darle prioridad a otros retoques que quise a agregar del lado client.
 
