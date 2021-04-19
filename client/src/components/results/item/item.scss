@@ -1,13 +1,12 @@
-.item-wrapper { 
+.item-wrapper {
     width: 100%;
     display: flex;
     align-items: center;
     border-bottom: 1px solid var(--color-accent);
-    
-    
-    &__logo{
-        width: 180px;
-        height: 180px;
+
+    &__logo {
+        width: 75px;
+        height: 75px;
         margin: var(--medium-space);
         border-radius: 4px;
     }
@@ -15,28 +14,63 @@
     &__price-wrapper {
         display: flex;
         align-items: center;
-        margin-bottom: var(--large-space);
+        margin-top: var(--medium-space);
+        margin-bottom: var(--medium-space);
     }
 
     &__free_shiping {
-        margin-left: var(--medium-space);
-        width: 20px;
-        height: 20px;
+        margin-left: var(--small-space);
+        width: 15px;
+        height: 15px;
     }
 
     &__price {
         margin: 0;
-        font-size: var(--large-font);
+        font-size: var(--medium-font);
     }
 
-    &__title-wrapper{
+    &__title-wrapper {
         color: var(--color-secondary);
         margin: 0;
         text-decoration: none;
     }
 
-    &__title{
-        width: clamp(150px,  300px, 80%);
-        font-size: var(--medium-font);
+    &__title {
+        width: clamp(150px, 300px, 80%);
+        font-size: var(--regular-font);
+    }
+}
+
+@media screen and (min-width: 641px) {
+    .item-wrapper {
+        &__logo {
+            width: 180px;
+            height: 180px;
+            margin: var(--medium-space);
+            border-radius: 4px;
+        }
+
+        &__price-wrapper {
+            display: flex;
+            align-items: center;
+            margin-top: 0;
+            margin-bottom: var(--large-space);
+        }
+
+        &__free_shiping {
+            margin-left: var(--medium-space);
+            width: 20px;
+            height: 20px;
+        }
+
+        &__price {
+            margin: 0;
+            font-size: var(--large-font);
+        }
+
+        &__title {
+            width: clamp(150px, 300px, 80%);
+            font-size: var(--medium-font);
+        }
     }
 }
