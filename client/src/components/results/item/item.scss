@@ -4,6 +4,10 @@
     align-items: center;
     border-bottom: 1px solid var(--color-accent);
 
+    &__product-info {
+        width: 100%;
+    }
+
     &__logo {
         width: 75px;
         height: 75px;
@@ -28,12 +32,25 @@
         margin: 0;
         font-size: var(--medium-font);
     }
+    &__information {
+        display: grid;
+        grid-template-columns: 7fr 3fr;
+        width: 100%;
+    }
+
+    &__location {
+        margin-right: var(--medium-space);
+        margin-bottom: var(--medium-space);
+        color: var(--color-additional);
+        font-size: var(--extra_small-font);
+    }
 
     &__title-wrapper {
         color: var(--color-secondary);
         margin: 0;
         text-decoration: none;
     }
+
 
     &__title {
         width: clamp(150px, 300px, 80%);

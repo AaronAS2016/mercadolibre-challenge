@@ -8,7 +8,7 @@ interface ItemProps {
 }
 
 export const Item = ({ item }: ItemProps) => {
-  const { id, picture, title, price, free_shipping } = item;
+  const { id, picture, title, price, free_shipping, location } = item;
   const { amount } = price;
   const realPrice = `$${amount.toLocaleString()}`;
   return (
@@ -28,9 +28,12 @@ export const Item = ({ item }: ItemProps) => {
             />
           )}
         </div>
-        <Link className="item-wrapper__title-wrapper" to={`/items/${id}`}>
-          <p className="item-wrapper__title"> {title} </p>
-        </Link>
+        <div className="item-wrapper__information">
+          <Link className="item-wrapper__title-wrapper" to={`/items/${id}`}>
+            <p className="item-wrapper__title"> {title} </p>
+          </Link>
+          <span className="item-wrapper__location">{location}</span>
+        </div>
       </div>
     </div>
   );
