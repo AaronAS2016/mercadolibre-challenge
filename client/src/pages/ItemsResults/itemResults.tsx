@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./resultsItem.scss"
+import "./itemResults.scss"
 import { RouteComponentProps, useLocation} from "@reach/router"
 import { controller, getItems } from "~/utils/api";
 import { ItemsContainer } from "~/components/results/itemsContainer/itemsContainer";
@@ -9,7 +9,7 @@ import { useItems } from "~/context/items-context";
 
 
 
-export const ResultsItem = (props: RouteComponentProps) => {
+export const ItemResults = (props: RouteComponentProps) => {
     const search = new URLSearchParams(useLocation().search);
     const query:string | null = search.get('search');
     const [products, setProducts]=  useState<any>([]);
