@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from "react";
-import "./itemResults.scss"
+import "./itemsResults.scss"
 import { RouteComponentProps, useLocation} from "@reach/router"
 import { getItems } from "~/utils/api";
 import { ItemsContainer } from "~/components/results/itemsContainer/itemsContainer";
 import { Item } from "~/components/results/item/item";
 import { AMOUNT_OF_ITEMS } from "~/constants/api";
 import { useItems } from "~/context/items-context";
+import { Loader } from "~/components/loader/loader";
 
 
 
-export const ItemResults = (props: RouteComponentProps) => {
+export const ItemsResults = (props: RouteComponentProps) => {
     const search = new URLSearchParams(useLocation().search);
     const query:string | null = search.get('search');
     const [products, setProducts]=  useState<any>([]);
     const { setQuery, setCategories } = useItems();
+    const [isLoading, setLoadingStatus] = useState(true);
 
     useEffect(() => {
+        setLoadingStatus(true);
         setProducts([]);
         setCategories([]);
         setQuery(query);
@@ -23,6 +26,7 @@ export const ItemResults = (props: RouteComponentProps) => {
             const dataProducts = await getItems(query)
             setCategories(dataProducts.categories);
             setProducts(dataProducts);
+            setLoadingStatus(false);
         }
         getProducts();
 
@@ -39,6 +43,10 @@ export const ItemResults = (props: RouteComponentProps) => {
                     }
                 </ItemsContainer>
             
+            }
+
+            {
+                isLoading && <Loader status={isLoading} text={"Buscando los productos que queres..."}/>
             }
         </section>
     )
