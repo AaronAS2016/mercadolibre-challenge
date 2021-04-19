@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./itemResults.scss"
 import { RouteComponentProps, useLocation} from "@reach/router"
-import { controller, getItems } from "~/utils/api";
+import { getItems } from "~/utils/api";
 import { ItemsContainer } from "~/components/results/itemsContainer/itemsContainer";
 import { Item } from "~/components/results/item/item";
 import { AMOUNT_OF_ITEMS } from "~/constants/api";

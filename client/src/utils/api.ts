@@ -1,11 +1,9 @@
-import { author, headers } from './../constants/api';
+import { headers } from './../constants/api';
 import { API_SEARCH_ITEM, API_SEARCH_ITEMS } from "~/constants/api";
 
-export const controller = new AbortController();
-export const { signal } = controller;
 
 export const getRequest = async (url: string, options: any = {}) => {
-    const req = await fetch(url, {signal, ...options});
+    const req = await fetch(url, {...options});
     const data = await req.json();
     return data;
 }
