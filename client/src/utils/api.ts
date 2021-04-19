@@ -15,7 +15,9 @@ export const getItems = async (query: string | null | undefined) => {
     const url = API_SEARCH_ITEMS + query;
     return await getRequest(url, headers);
   } catch (error) {
-    return () => {throw new Error(error) };
+    return () => {
+      throw new Error(error);
+    };
   }
 };
 
@@ -23,6 +25,12 @@ export const getItem = async (id: string | null | undefined) => {
   if (!id) {
     return [];
   }
-  const url = API_SEARCH_ITEM + id;
-  return await getRequest(url, headers);
+  try {
+    const url = API_SEARCH_ITEM + id;
+    return await getRequest(url, headers);
+  } catch (error) {
+    return () => {
+      throw new Error(error);
+    };
+  }
 };
