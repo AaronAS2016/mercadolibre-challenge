@@ -9,8 +9,8 @@ export const Home = (props: RouteComponentProps) => {
         setQuery("");
     }, [])
     return (
-        <div>
-            
+        <div className="home-wrapper">
+            <h3 className="home-wrapper__title">Proba buscar los productos que estes interesado en la barra de busqueda :D</h3>
         </div>
     )
 }

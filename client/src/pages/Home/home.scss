@@ -1,0 +1,18 @@
+.home-wrapper {
+    width: 100%;
+    height: calc(100vh - 65px);
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--large-font);
+    opacity: .7;
+    
+    &__title{
+        width: 80%;
+        color: var(--color-secondary);
+    }
+   
+  }
+  
